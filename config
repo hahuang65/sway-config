@@ -21,7 +21,7 @@ input "DELL07E6:00 06CB:76AF Touchpad" {
 }
 
 set $term alacritty
-set $launcher wofi --show drun
+set $launcher wofi
 
 # Disable focus-follows-mouse
 focus_follows_mouse no
