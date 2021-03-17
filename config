@@ -51,10 +51,13 @@ bindsym $mod+Shift+c reload
 # Make fullscreen current window
 bindsym $mod+z fullscreen
 
-# Split horizontally with `|`
-bindsym $mod+bar splitv
+# NOTE splith in sway/i3 are different than splith in vim
+# In vim :vsplit opens a window to the left/right and :split to the top/bottom
+# In sway/i3 splith opens a window to the left/right and splitv to the top/bottom
+# Split horizontally with `\`
+bindsym $mod+backslash splith
 # Split horizontally with `-`
-bindsym $mod+minus splith
+bindsym $mod+minus splitv
 
 # Change focused window
 bindsym $mod+h focus left
@@ -84,16 +87,21 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Switch to workspace
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+0 workspace number 4
+# Workspaces
+set $workspace1 "Web"
+set $workspace2 "Chat"
+set $workspace3 "Music"
+set $workspace4 "Dev"
+
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+0 workspace $workspace4
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+0 move container to workspace number 4
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+0 move container to workspace $workspace4
 
 # Bind media keys to their expected function
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1000
