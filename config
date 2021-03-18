@@ -20,7 +20,7 @@ input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
   click_method clickfinger
 }
 
-set $term alacritty
+set $term kitty
 set $launcher wofi
 set $bar waybar
 
