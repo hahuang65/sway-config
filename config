@@ -88,21 +88,16 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Workspaces
-set $workspace1 "Web"
-set $workspace2 "Chat"
-set $workspace3 "Music"
-set $workspace4 "Dev"
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+0 workspace number 4
 
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+0 workspace $workspace4
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+0 move container to workspace $workspace4
+bindsym $mod+Shift+1 move container to workspace number1
+bindsym $mod+Shift+2 move container to workspace number2
+bindsym $mod+Shift+3 move container to workspace number3
+bindsym $mod+Shift+0 move container to workspace number4
 
 # Bind media keys to their expected function
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1000
@@ -131,7 +126,7 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
 # Waybar
-exec_always killall -SIGHUP $bar; sleep 1; $bar
+exec_always killall -SIGUSR2 $bar || $bar
 
 # Idle configuration
 exec swayidle -w \
