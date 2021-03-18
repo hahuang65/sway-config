@@ -11,7 +11,7 @@ input type:keyboard {
 
 # Touchpad configuration
 # Read `man 5 sway-input` for more information about this section.
-input "DELL07E6:00 06CB:76AF Touchpad" {
+input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
   dwt enabled
   tap disabled
   natural_scroll disabled
