@@ -120,12 +120,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 output eDP-1 scale 1
 output eDP-1 resolution 3840x2160 position 0 0
 
-# Idle configuration
-exec swayidle -w \
-   timeout 300 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5 --grace 10' \
-   timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-   before-sleep 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5 --grace 10' \
-
 # Dracula Theme ======================================================
 # class                 border  bground text    indicator child_border
 client.focused          #50FA7B #6272A4 #F8F8F2 #6272A4   #50FA7B
@@ -135,20 +129,13 @@ client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
 client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
-# Status Bar:
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
+# Waybar
+exec waybar
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+# Idle configuration
+exec swayidle -w \
+   timeout 300 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5 --grace 10' \
+   timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+   before-sleep 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5 --grace 10' \
 
 include /etc/sway/config.d/*
