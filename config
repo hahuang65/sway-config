@@ -22,6 +22,7 @@ input "DELL07E6:00 06CB:76AF Touchpad" {
 
 set $term alacritty
 set $launcher wofi
+set $bar waybar
 
 # Disable focus-follows-mouse
 focus_follows_mouse no
@@ -130,7 +131,7 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #F8F8F2
 
 # Waybar
-exec waybar
+exec_always killall -SIGHUP $bar; sleep 1; $bar
 
 # Idle configuration
 exec swayidle -w \
