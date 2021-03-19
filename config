@@ -94,10 +94,10 @@ bindsym $mod+3 workspace number 3
 bindsym $mod+0 workspace number 4
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number1
-bindsym $mod+Shift+2 move container to workspace number2
-bindsym $mod+Shift+3 move container to workspace number3
-bindsym $mod+Shift+0 move container to workspace number4
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+0 move container to workspace number 4
 
 # Bind media keys to their expected function
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1000
