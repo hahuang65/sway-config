@@ -27,6 +27,9 @@ set $bar waybar
 # Disable focus-follows-mouse
 focus_follows_mouse no
 
+# Wallpaper
+output "*" bg $HOME/Pictures/Wallpapers/Dracula.png fill
+
 # Borders and gaps
 default_border pixel 2
 gaps inner 10
