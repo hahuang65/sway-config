@@ -1,6 +1,22 @@
 # Mod1 is left alt
 set $mod Mod1
 
+bindsym $mod+Shift+space exec $HOME/.scripts/lock
+
+# # You can get the names of your outputs by running: swaymsg -t get_outputs
+set $laptop_monitor 'eDP-1'
+set $external_monitor 'DP-1'
+
+output $laptop_monitor scale 1
+output $laptop_monitor resolution 3840x2160 position 0 0
+
+# Because of a bug in wlroots, sway cannot easily attach to a 4K monitor using `output` and `kanshi`.
+# Instead, we need a script that enables the monitor in 1080p, and then changes the resolution to 4K.
+# For this same reason, `bindswitch` cannot be used reliably either.
+# https://github.com/swaywm/wlroots/issues/1877
+# https://github.com/swaywm/sway/issues/5235
+bindsym $mod+Shift+d exec $HOME/.scripts/dock
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 input type:keyboard {
   # See /usr/share/X11/xkb/rules/xorg.lst for options
@@ -115,10 +131,6 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
-# Monitor output
-output eDP-1 scale 1
-output eDP-1 resolution 3840x2160 position 0 0
-
 # Dracula Theme ======================================================
 # class                 border  bground text    indicator child_border
 client.focused          #50FA7B #6272A4 #F8F8F2 #6272A4   #50FA7B
@@ -136,8 +148,8 @@ exec_always killall -SIGUSR2 $bar || $bar
 
 # Idle configuration
 exec swayidle -w \
-   timeout 300 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5 --grace 10' \
+   timeout 300 exec $HOME/.scripts/lock \
    timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-   before-sleep 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5 --grace 10' \
+   before-sleep exec $HOME/.scripts/lock \
 
 include /etc/sway/config.d/*
