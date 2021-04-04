@@ -1,8 +1,6 @@
 # Mod1 is left alt
 set $mod Mod1
 
-bindsym $mod+Shift+space exec $HOME/.scripts/lock
-
 # # You can get the names of your outputs by running: swaymsg -t get_outputs
 set $laptop_monitor 'eDP-1'
 set $external_monitor 'DP-1'
@@ -131,8 +129,8 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Bind brightness keys to their expected function
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # Dracula Theme ======================================================
 # class                 border  bground text    indicator child_border
@@ -150,9 +148,12 @@ bindsym $mod+Shift+4 exec grim -g "$(slurp)" "$HOME/Pictures/$(date +'grim_%m_%d
 exec_always killall -SIGUSR2 $bar || $bar
 
 # Idle configuration
+bindsym $mod+Shift+space exec $lock
+
+set $lock 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5 --grace 10' 
 exec swayidle -w \
-   timeout 300 exec $HOME/.scripts/lock \
+   timeout 300 $lock \
    timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-   before-sleep exec $HOME/.scripts/lock \
+   before-sleep $lock 
 
 include /etc/sway/config.d/*
