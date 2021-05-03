@@ -1,14 +1,16 @@
 # Mod1 is left alt
 set $mod Mod1
 
-# # You can get the names of your outputs by running: swaymsg -t get_outputs
+# You can get the names of your outputs by running: swaymsg -t get_outputs
 set $laptop_monitor 'eDP-1'
 set $external_monitor 'DP-1'
 
 output $laptop_monitor scale 1
 output $laptop_monitor resolution 3840x2160 position 0 0
 output $external_monitor scale 1
-output $external_monitor resolution 3840x2160 position 0 0
+# This MUST be set to 1920x1080, with kanshi's config set to 3840x2160 for the correct resolution to apply when docking.
+# See the next comment paragraph for the details on the bug
+output $external_monitor resolution 1920x1080 position 0 0
 
 # Because of a bug in wlroots, we need to use `sway-git`, which comes with `wlroots-git`
 # This allows usage of 4K external monitors (otherwise, only 1080p), by setting the `wlroots.conf` file
