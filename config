@@ -136,7 +136,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # Dracula Theme ======================================================
 # class                 border  bground text    indicator child_border
-client.focused          #50FA7B #6272A4 #F8F8F2 #6272A4   #50FA7B
+client.focused          #BD93F9 #6272A4 #F8F8F2 #6272A4   #BD93F9
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
