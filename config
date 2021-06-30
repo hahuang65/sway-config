@@ -158,4 +158,8 @@ exec swayidle -w \
    timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
    before-sleep $lock 
 
+# Specific application window settings
+for_window [class="Caja"] floating enable
+for_window [app_id="blueberry.py"] floating enable
+
 include /etc/sway/config.d/*
