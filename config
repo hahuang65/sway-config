@@ -136,12 +136,21 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # Dracula Theme ======================================================
 # class                 border  bground text    indicator child_border
-client.focused          #BD93F9 #6272A4 #F8F8F2 #6272A4   #BD93F9
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #44475A #44475A #BFBFBF #44475A   #44475A
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-client.background       #F8F8F2
+# client.focused          #BD93F9 #6272A4 #F8F8F2 #6272A4   #BD93F9
+# client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+# client.unfocused        #44475A #44475A #BFBFBF #44475A   #44475A
+# client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+# client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+# client.background       #F8F8F2
+
+# Tokyo Night Storm Theme ======================================================
+# class                 border  bground text    indicator child_border
+client.focused          #bb9af7 #414868 #a9b1d6 #414868   #bb9af7
+client.focused_inactive #565f89 #565f89 #a9b1d6 #565f89   #565f89
+client.unfocused        #565f89 #565f89 #cfc9c2 #565f89   #565f89
+client.urgent           #565f89 #ff9e64 #a9b1d6 #ff9e64   #ff9e64
+client.placeholder      #1a1b26 #1a1b26 #a9b1d6 #1a1b26   #1a1b26
+client.background       #c0caf5
 
 # Grim/Slurp
 bindsym $mod+Shift+4 exec grim -g "$(slurp)" "$HOME/Pictures/$(date +'grim_%m_%d_%y.png')"
