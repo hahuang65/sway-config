@@ -39,7 +39,7 @@ input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
   click_method clickfinger
 }
 
-set $term kitty --single-instance
+set $term wezterm
 set $launcher wofi
 set $bar waybar
 
