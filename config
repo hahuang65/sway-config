@@ -47,7 +47,7 @@ set $bar waybar
 focus_follows_mouse no
 
 # Wallpaper
-output "*" bg $HOME/Pictures/Wallpapers/Dracula.png fill
+output "*" bg $HOME/Pictures/Wallpapers/Catppuccin.png fill
 
 # Borders and gaps
 default_border pixel 2
@@ -153,7 +153,7 @@ client.placeholder      #1a1b26 #1a1b26 #a9b1d6 #1a1b26   #1a1b26
 client.background       #c0caf5
 
 # Grim/Slurp
-bindsym $mod+Shift+4 exec grim -g "$(slurp)" "$HOME/Pictures/$(date +'grim_%m_%d_%y.png')"
+bindsym $mod+Shift+4 exec grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date +'grim_%m_%d_%y-%H_%M_%S.png')"
 
 # Waybar
 exec_always killall -SIGUSR2 $bar || $bar
