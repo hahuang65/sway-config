@@ -30,6 +30,7 @@ input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
 }
 
 set $term wezterm
+set $editor wezterm cli spawn --new-window -- nvim
 set $launcher wofi
 set $bar waybar
 
@@ -50,7 +51,10 @@ bindsym $mod+n exec $HOME/.scripts/notepad
 bindsym $mod+c exec $HOME/.scripts/docs
 
 # Start a terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Shift+Return exec $term
+
+# Start an editor
+bindsym $mod+Return exec $editor
 
 # Kill focused window
 bindsym $mod+q kill
