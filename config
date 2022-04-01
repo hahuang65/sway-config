@@ -29,9 +29,10 @@ input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
   click_method clickfinger
 }
 
-set $term wezterm
 # Use `wezterm --config 'exit_behavior="Hold"' start env` to check out the environment
-set $editor wezterm start -- nvim
+set $term wezterm
+# Must use `bash -l` to get a login shell, otherwise `keychain` won't evaluate and set the right `SSH_*` env vars
+set $editor wezterm start -- bash -l -c nvim
 set $launcher wofi
 set $bar waybar
 
