@@ -164,7 +164,7 @@ exec swayidle -w \
    before-sleep $lock 
 
 # 1Password ssh agent
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/lib/polkit-kde-authentication-agent-1
 exec 1password --silent
 
 # Specific application window settings
