@@ -104,7 +104,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+Shift+r mode "resize"
 
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
