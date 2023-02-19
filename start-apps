@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+function window_exist {
+	swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.pid and .visible) | {name} | "\(.name)"' | grep "$1"
+}
+
+function wait_for {
+	until window_exist "$1"; do
+		sleep 0.2
+	done
+}
+
+swaymsg "workspace 1; exec google-chrome-stable"
+swaymsg "workspace 2; exec slack"
+wait_for "Slack"
+swaymsg "splith; exec wezterm start -- bash -l -c weechat"
+wait_for "weechat"
+swaymsg "splitv; exec wezterm start -- bash -l -c aerc"
+wait_for "aerc"
+swaymsg "focus left; splitv; exec ferdium"
+wait_for "Ferdium"
