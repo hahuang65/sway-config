@@ -171,6 +171,7 @@ exec 1password --silent
 
 # Specific application window settings
 for_window [app_id="iwgtk"] floating enable
+for_window [class="1Password"] floating enable
 
 exec ~/.dotfiles/sway/start-apps
 
