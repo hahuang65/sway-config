@@ -5,7 +5,7 @@ set $mod Mod1
 set $laptop_monitor 'eDP-1'
 set $desktop_monitor 'DP-1'
 
-output $laptop_monitor scale 1.25
+output $laptop_monitor scale 1
 output $laptop_monitor resolution 3840x2160 position 0 0
 output $desktop_monitor scale 1
 output $desktop_monitor resolution 3840x2160 position 0 0
