@@ -36,7 +36,6 @@ set $term wezterm start --always-new-process
 # Must use `bash -l` to get a login shell, otherwise `keychain` won't evaluate and set the right `SSH_*` env vars
 set $editor wezterm start -- bash -l -c nvim
 set $launcher pkill wofi || wofi
-set $bar waybar
 
 # Disable focus-follows-mouse
 focus_follows_mouse no
@@ -65,6 +64,9 @@ bindsym $mod+q kill
 
 # Start your launcher
 bindsym $mod+space exec $launcher
+
+# 1Password
+bindsym Ctrl+Shift+p exec 1password --quick-access
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -154,14 +156,16 @@ client.background       #c0caf5
 bindsym $mod+Shift+4 exec grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date +'grim_%m_%d_%y-%H_%M_%S.png')"
 
 # Waybar
-exec_always killall -SIGUSR2 $bar || $bar
+exec_always killall -SIGUSR2 waybar || waybar
 
-# Idle configuration
+# Idle and lock
+set $lock 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5' 
+set $lock-with-grace 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5 --grace 15' 
+
 bindsym $mod+Shift+space exec $lock
 
-set $lock 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5' 
 exec swayidle -w \
-   timeout 900 $lock --grace 10 \
+   timeout 900 $lock-with-grace \
    timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
    before-sleep $lock 
 
@@ -170,7 +174,6 @@ exec /usr/lib/polkit-kde-authentication-agent-1
 exec 1password --silent
 
 # Specific application window settings
-for_window [app_id="iwgtk"] floating enable
 for_window [class="1Password"] floating enable
 
 exec ~/.dotfiles/sway/start-apps
