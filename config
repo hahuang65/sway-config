@@ -66,7 +66,7 @@ bindsym $mod+q kill
 bindsym $mod+space exec $launcher
 
 # 1Password
-bindsym Ctrl+Shift+p exec 1password --quick-access
+bindsym Ctrl+Shift+p exec 1password --quick-access --ozone-platform-hint=auto
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
