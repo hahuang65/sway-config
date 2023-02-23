@@ -175,6 +175,7 @@ exec 1password --silent
 
 # Specific application window settings
 for_window [class="1Password"] floating enable
+for_window [app_id="thunar"] floating enable
 
 exec ~/.dotfiles/sway/start-apps
 
