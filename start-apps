@@ -4,18 +4,25 @@ function window_exist {
 	swaymsg -t get_tree | jq -r '.. | (.nodes? // empty)[] | select(.pid and .visible) | {name} | "\(.name)"' | grep "$1"
 }
 
-function wait_for {
+function wait_for_window {
 	until window_exist "$1"; do
+		sleep 0.2
+	done
+}
+
+function wait_for_service {
+	until systemctl --user is-active --quiet "$1"; do
 		sleep 0.2
 	done
 }
 
 swaymsg "workspace 1; exec google-chrome-stable"
 swaymsg "workspace 2; exec slack"
-wait_for "Slack"
+wait_for_window "Slack"
+wait_for_service "keybase"
 swaymsg "splith; exec wezterm start -- bash -l -c weechat"
-wait_for "weechat"
+wait_for_window "weechat"
 swaymsg "splitv; exec wezterm start -- bash -l -c aerc"
-wait_for "aerc"
+wait_for_window "aerc"
 swaymsg "focus left; splitv; exec ferdium"
-wait_for "Ferdium"
+wait_for_window "Ferdium"
