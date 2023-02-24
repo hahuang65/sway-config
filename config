@@ -177,6 +177,10 @@ exec 1password --silent
 for_window [class="1Password"] floating enable
 for_window [app_id="thunar"] floating enable
 
+# Prevent idling when a browser is full-screened
+for_window [app_id="google-chrome"] inhibit_idle fullscreen
+for_window [app_id="firefox"] inhibit_idle fullscreen
+
 exec ~/.dotfiles/sway/start-apps
 
 include /etc/sway/config.d/*
