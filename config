@@ -39,6 +39,7 @@ set $launcher pkill wofi || wofi
 
 # Disable focus-follows-mouse
 focus_follows_mouse no
+focus_wrapping no
 
 # Wallpaper
 output "*" bg $HOME/Pictures/Wallpapers/Catppuccin.png fill
