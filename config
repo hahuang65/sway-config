@@ -178,6 +178,9 @@ exec swayidle -w \
 exec /usr/lib/polkit-kde-authentication-agent-1
 exec 1password --silent
 
+# Plex MPV Shim
+exec $HOME/.asdf/shims/plex-mpv-shim
+
 # Limit certain apps to certain workspaces
 assign [class="Google-chrome"] 1
 assign [class="Slack"] 2
