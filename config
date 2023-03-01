@@ -42,7 +42,7 @@ focus_follows_mouse no
 focus_wrapping no
 
 # Wallpaper
-output "*" bg $HOME/Pictures/Wallpapers/Catppuccin.png fill
+output "*" bg $HOME/Pictures/Wallpapers/Catppuccin.png fill #1e1e2e
 
 # Borders and gaps
 default_border pixel 4
