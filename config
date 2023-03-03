@@ -1,3 +1,38 @@
+# Catppuccin Mocha
+set $rosewater #f5e0dc
+set $flamingo  #f2cdcd
+set $pink      #f5c2e7
+set $mauve     #cba6f7
+set $red       #f38ba8
+set $maroon    #eba0ac
+set $peach     #fab387
+set $green     #a6e3a1
+set $teal      #94e2d5
+set $sky       #89dceb
+set $sapphire  #74c7ec
+set $blue      #89b4fa
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b70
+set $surface1  #45475a
+set $surface0  #313244
+set $base      #1e1e2e
+set $mantle    #181825
+set $crust     #11111b
+
+# target                 title     bg    text   indicator  border
+client.focused           $pink     $base $text  $rosewater $mauve
+client.focused_inactive  $mauve    $base $text  $rosewater $mauve
+client.unfocused         $mauve    $base $text  $rosewater $surface0
+client.urgent            $peach    $base $peach $overlay0  $red
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
 # Mod1 is left alt
 set $mod Mod1
 
@@ -138,24 +173,6 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 # Bind brightness keys to their expected function
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-
-# Dracula Theme ======================================================
-# class                 border  bground text    indicator child_border
-# client.focused          #BD93F9 #6272A4 #F8F8F2 #6272A4   #BD93F9
-# client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-# client.unfocused        #44475A #44475A #BFBFBF #44475A   #44475A
-# client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-# client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-# client.background       #F8F8F2
-
-# Tokyo Night Storm Theme ======================================================
-# class                 border  bground text    indicator child_border
-client.focused          #bb9af7 #414868 #a9b1d6 #414868   #bb9af7
-client.focused_inactive #565f89 #565f89 #a9b1d6 #565f89   #565f89
-client.unfocused        #565f89 #565f89 #cfc9c2 #565f89   #565f89
-client.urgent           #565f89 #ff9e64 #a9b1d6 #ff9e64   #ff9e64
-client.placeholder      #1a1b26 #1a1b26 #a9b1d6 #1a1b26   #1a1b26
-client.background       #c0caf5
 
 # Grim/Slurp
 bindsym $mod+Shift+4 exec grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date +'grim_%m_%d_%y-%H_%M_%S.png')"
