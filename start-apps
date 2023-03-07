@@ -17,6 +17,8 @@ function wait_for_service {
 }
 
 swaymsg "exec google-chrome-stable"
+wait_for_window "Google Chrome"
+swaymsg "workspace 2"
 swaymsg "exec slack"
 wait_for_window "Slack"
 wait_for_service "keybase"
@@ -26,3 +28,4 @@ swaymsg "splitv; exec wezterm start --class 'aerc' -- bash -l -c aerc"
 wait_for_window "aerc"
 swaymsg "focus left; splitv; exec ferdium"
 wait_for_window "Ferdium"
+swaymsg "workspace 1"
