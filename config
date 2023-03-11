@@ -70,7 +70,7 @@ input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
 set $term wezterm start --always-new-process
 # Must use `bash -l` to get a login shell, otherwise `keychain` won't evaluate and set the right `SSH_*` env vars
 set $editor wezterm start -- bash -l -c nvim
-set $launcher pkill wofi || wofi
+set $launcher pkill fuzzel || fuzzel
 
 # Disable focus-follows-mouse
 focus_follows_mouse no
