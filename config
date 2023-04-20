@@ -91,7 +91,7 @@ gaps outer 10
 # Scratchpads
 bindsym $mod+s exec $HOME/.scripts/scratchpad
 bindsym $mod+n exec $HOME/.scripts/notepad
-bindsym $mod+d exec $HOME/.scripts/docs
+bindsym $mod+x exec $HOME/.scripts/docs
 
 # Start a terminal
 bindsym $mod+Shift+Return exec $term
