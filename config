@@ -222,6 +222,7 @@ for_window [window_type="menu"] floating enable
 for_window [class="1Password"] floating enable
 for_window [app_id="thunar"] floating enable
 for_window [class="Headset"] floating enable
+for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable
 
 # Prevent idling when a browser is full-screened
 for_window [app_id="google-chrome"] inhibit_idle fullscreen
