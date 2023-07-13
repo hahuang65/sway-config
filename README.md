@@ -17,3 +17,4 @@ Roughly taken from [Hyprland Docs](https://wiki.hyprland.org/Nvidia/)
 4. Remove `kms` from the `HOOKS` section of `/etc/mkinitcpio.conf`
 5. Re-build initramfs: `mkinitcpio -P`
 6. Add `options nvidia-drm modeset=1` to `/etc/modprobe.d/nvidia.conf` (create file if non-existent)
+7. Add the pacman [hook](https://wiki.archlinux.org/title/NVIDIA#pacman_hook) to regenerate initramfs when `nvidia` or `linux` is updated
