@@ -42,14 +42,16 @@ set $mod Mod1
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 set $laptop_monitor 'eDP-1'
-set $desktop_monitor 'DP-1'
 
 output $laptop_monitor scale 1
 output $laptop_monitor resolution 3840x2160 position 0 0 scale 1.2
-output $desktop_monitor scale 1
-output $desktop_monitor resolution 3840x2160 position 0 0
 bindswitch --reload --locked lid:on exec $lock && output $laptop_monitor disable
 bindswitch --reload --locked lid:off output $laptop_monitor enable
+
+exec_always {
+  pkill kanshi
+  kanshi &
+}
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 input type:keyboard {
