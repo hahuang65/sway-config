@@ -70,7 +70,8 @@ input "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" {
 # Use `wezterm --config 'exit_behavior="Hold"' start env` to check out the environment
 set $term wezterm start --always-new-process
 # Must use `bash -l` to get a login shell, otherwise `keychain` won't evaluate and set the right `SSH_*` env vars
-set $editor wezterm start -- bash -l -c nvim
+# set $editor wezterm start -- bash -l -c nvim
+set $editor neovide
 set $launcher pkill fuzzel || fuzzel
 
 # Disable focus-follows-mouse
@@ -182,15 +183,15 @@ bindsym $mod+Shift+4 exec grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date 
 exec waybar
 
 # Idle and lock
-set $lock 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5' 
-set $lock-with-grace 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5 --grace 15' 
+set $lock 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5'
+set $lock-with-grace 'swaylock --daemonize --indicator --screenshots --clock --effect-greyscale --effect-pixelate 5 --grace 15'
 
 bindsym $mod+Shift+space exec $lock
 
 exec swayidle -w \
    timeout 900 $lock-with-grace \
    timeout 1800 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-   before-sleep $lock 
+   before-sleep $lock
 
 # 1Password ssh agent
 exec /usr/lib/polkit-kde-authentication-agent-1
