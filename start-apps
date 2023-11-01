@@ -16,8 +16,9 @@ function wait_for_service {
   done
 }
 
-swaymsg "exec firefox"
-wait_for_window "Firefox"
+swaymsg "workspace 1"
+swaymsg "exec google-chrome-stable"
+wait_for_window "Google Chrome"
 swaymsg "workspace 2"
 swaymsg "exec slack"
 wait_for_window "Slack"
