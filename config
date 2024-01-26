@@ -204,7 +204,7 @@ exec $HOME/.asdf/shims/plex-mpv-shim
 assign [class="Google-chrome"] 1
 assign [class="Slack"] 2
 assign [class="Ferdium"] 2
-assign [class="weechat"] 2
+assign [class="senpai"] 2
 assign [class="aerc"] 2
 assign [app_id="mpv"] 3
 
