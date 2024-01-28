@@ -88,7 +88,7 @@ gaps outer 10
 
 # Scratchpads
 bindsym $mod+s exec $HOME/.scripts/scratchpad
-bindsym $mod+n exec $HOME/.scripts/notepad
+bindsym $mod+w exec $HOME/.scripts/notepad
 bindsym $mod+x exec $HOME/.scripts/docs
 
 # Start a terminal
