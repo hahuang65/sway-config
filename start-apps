@@ -17,8 +17,8 @@ function wait_for_service {
 }
 
 swaymsg "workspace 1"
-swaymsg "exec firefox"
-wait_for_window "Firefox"
+swaymsg "exec vivaldi"
+wait_for_window "Vivaldi"
 swaymsg "workspace 2"
 swaymsg "exec slack"
 wait_for_window "Slack"
