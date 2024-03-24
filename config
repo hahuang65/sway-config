@@ -202,6 +202,9 @@ exec $HOME/.asdf/shims/plex-mpv-shim
 
 # Limit certain apps to certain workspaces
 assign [class="Google-chrome"] 1
+assign [app_id="firefox"] 1
+assign [app_id="vivaldi"] 1
+assign [class="Google-chrome"] 1
 assign [class="Slack"] 2
 assign [class="Ferdium"] 2
 assign [class="senpai"] 2
@@ -225,6 +228,7 @@ for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable
 # Prevent idling when a browser is full-screened
 for_window [app_id="google-chrome"] inhibit_idle fullscreen
 for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="vivaldi"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
 
 exec ~/.dotfiles/sway/start-apps
