@@ -79,12 +79,12 @@ focus_follows_mouse no
 focus_wrapping no
 
 # Wallpaper
-output "*" bg $HOME/Pictures/Wallpapers/Catppuccin.png fill #1e1e2e
+output "*" bg $HOME/Pictures/Wallpapers/Catppuccin.png fill $base
 
 # Borders and gaps
-default_border pixel 4
-gaps inner 10
-gaps outer 10
+default_border pixel 3
+gaps inner 5
+gaps outer 5
 
 # Scratchpads
 bindsym $mod+s exec $HOME/.scripts/scratchpad
@@ -148,20 +148,28 @@ mode "resize" {
 }
 bindsym $mod+Shift+r mode "resize"
 
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+0 workspace number 4
+set $ws1 "1:web"
+set $ws2 "2:chat"
+set $ws3 "3:media"
+set $ws4 "4:game"
+set $ws5 "5:code"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+0 workspace $ws5
 
 # Swipe between workspaces
 bindgesture swipe:right workspace next
 bindgesture swipe:left workspace prev
 
 # Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+0 move container to workspace number 4
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+0 move container to workspace $ws5
 
 # Bind media keys to their expected function
 bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
@@ -177,7 +185,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # Grim/Slurp
-bindsym $mod+Shift+4 exec grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date +'grim_%m_%d_%y-%H_%M_%S.png')"
+bindsym Ctrl+Shift+4 exec grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date +'grim_%m_%d_%y-%H_%M_%S.png')"
 
 # Waybar
 exec waybar
@@ -201,15 +209,17 @@ exec 1password --silent
 exec $HOME/.asdf/shims/plex-mpv-shim
 
 # Limit certain apps to certain workspaces
-assign [class="Google-chrome"] 1
-assign [app_id="firefox"] 1
-assign [app_id="vivaldi"] 1
-assign [app_id="thunderbird"] 2
-assign [class="Slack"] 2
-assign [class="Ferdium"] 2
-assign [class="senpai"] 2
-assign [class="aerc"] 2
-assign [app_id="mpv"] 3
+assign [class="Google-chrome"] $ws1
+assign [app_id="firefox"] $ws1
+assign [app_id="vivaldi"] $ws1
+assign [app_id="org.mozilla.Thunderbird"] $ws2
+assign [app_id="Slack"] $ws2
+assign [class="Ferdium"] $ws2
+assign [class="senpai"] $ws2
+assign [class="aerc"] $ws2
+assign [app_id="mpv"] $ws3
+assign [class="steam"] $ws4
+assign [class="steam_app.*"] $ws4
 
 # Specific application window settings
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
@@ -225,6 +235,8 @@ for_window [app_id="thunar"] floating enable
 for_window [app_id="org.mozilla.Thunderbird" title="^[0-9]+ Reminders?$"] floating enable
 for_window [class="Headset"] floating enable
 for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable
+for_window [class="steam"] floating enable
+for_window [class="steam_app.*"] floating enable
 
 # Prevent idling when a browser is full-screened
 for_window [app_id="google-chrome"] inhibit_idle fullscreen

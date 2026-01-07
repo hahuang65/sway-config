@@ -16,16 +16,14 @@ function wait_for_service {
   done
 }
 
-swaymsg "workspace 1"
 swaymsg "exec firefox"
 wait_for_window "Firefox"
-swaymsg "workspace 2"
+swaymsg "workspace 2:chat"
 swaymsg "exec slack"
 wait_for_window "Slack"
-swaymsg "splith; exec wezterm start -- bash -l -c senpai"
+swaymsg "splith; exec wezterm start --class senpai -- bash -l -c senpai"
 wait_for_window "senpai"
 swaymsg "splitv; exec thunderbird"
 wait_for_window "Thunderbird"
 swaymsg "focus left; splitv; exec ferdium"
 wait_for_window "Ferdium"
-swaymsg "workspace 1"
