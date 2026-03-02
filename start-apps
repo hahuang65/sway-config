@@ -16,6 +16,18 @@ function wait_for_service {
   done
 }
 
+function wait_for_kwallet {
+  local attempts=0
+  until kwallet-query -f 'Chromium Keys' -l kdewallet 2>/dev/null | grep -q 'Chromium Safe Storage'; do
+    attempts=$((attempts + 1))
+    if [ "$attempts" -ge 20 ]; then
+      return
+    fi
+    sleep 0.5
+  done
+}
+
+wait_for_kwallet
 swaymsg "exec vivaldi"
 wait_for_window "Vivaldi"
 swaymsg "workspace 2:chat"
