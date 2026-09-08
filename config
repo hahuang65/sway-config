@@ -87,9 +87,9 @@ gaps inner 5
 gaps outer 5
 
 # Scratchpads
-bindsym $mod+s exec $HOME/.scripts/scratchpad
-bindsym $mod+w exec $HOME/.scripts/notepad
-bindsym $mod+x exec $HOME/.scripts/docs
+bindsym $mod+s exec $HOME/.config/sway/scripts/scratchpad
+bindsym $mod+w exec $HOME/.config/sway/scripts/notepad
+bindsym $mod+x exec $HOME/.config/sway/scripts/docs
 
 # Start a terminal
 bindsym $mod+Shift+Return exec $term
@@ -247,6 +247,6 @@ for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="vivaldi"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
 
-exec ~/.dotfiles/sway/start-apps
+exec $HOME/.config/sway/scripts/start-apps
 
 include /etc/sway/config.d/*

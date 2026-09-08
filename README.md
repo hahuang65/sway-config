@@ -5,7 +5,13 @@ I will do my best to comment the configuration file. Feel free to crib/steal thi
 
 ## Usage
 
-Run `./install.sh` to link the configuration files to the proper location
+Run `./install.sh` to link the configuration files to the proper location.
+
+## Scripts
+
+Sway-specific compositor integrations live in `scripts/` and are installed at `~/.config/sway/scripts/`.
+The Sway configuration invokes these integrations from the installed path instead of the shared `~/.scripts/` directory.
+The installer also keeps the manually invoked `dock` command available at `~/.scripts/dock`.
 
 ## Nvidia
 
