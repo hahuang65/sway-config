@@ -42,7 +42,10 @@ run_installer "$MIGRATION_HOME"
 
 assert_link_target "$MIGRATION_HOME/.config/sway/config" "$REPOSITORY_DIR/config"
 assert_link_target "$MIGRATION_HOME/.config/sway/scripts" "$REPOSITORY_DIR/scripts"
+assert_link_target "$MIGRATION_HOME/.config/systemd/user/sway-session.target" "$REPOSITORY_DIR/sway-session.target"
 [[ -x "$MIGRATION_HOME/.config/sway/scripts/start-apps" ]]
+grep -Eq '^Wants=.*xdg-desktop-autostart\.target' "$MIGRATION_HOME/.config/systemd/user/sway-session.target"
+grep -Eq '^Before=.*xdg-desktop-autostart\.target' "$MIGRATION_HOME/.config/systemd/user/sway-session.target"
 [[ ! -e "$MIGRATION_HOME/.scripts/scratchpad" && ! -L "$MIGRATION_HOME/.scripts/scratchpad" ]]
 [[ ! -e "$MIGRATION_HOME/.scripts/notepad" && ! -L "$MIGRATION_HOME/.scripts/notepad" ]]
 [[ ! -e "$MIGRATION_HOME/.scripts/docs" && ! -L "$MIGRATION_HOME/.scripts/docs" ]]
