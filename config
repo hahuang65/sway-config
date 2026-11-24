@@ -105,6 +105,8 @@ bindsym $mod+space exec $launcher
 
 # 1Password
 bindsym Ctrl+Shift+p exec 1password --quick-access --ozone-platform-hint=auto
+bindsym --no-repeat Ctrl+Mod4+space exec hex dictation start
+bindsym --release Ctrl+Mod4+space exec hex dictation stop
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
